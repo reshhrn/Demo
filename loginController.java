@@ -123,9 +123,9 @@ public class loginController extends Controller implements Initializable {
     // end of switching windows
 
     public void logout(ActionEvent event){
-        ButtonType good_btn = new ButtonType("Log Out");
-        ButtonType bad_btn = new ButtonType("Cancel");
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"", good_btn, bad_btn);
+        ButtonType logout_btn = new ButtonType("Log Out");
+        ButtonType cancel_btn = new ButtonType("Cancel");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"", logout_btn, cancel_btn);
         new FadeIn(alert.getDialogPane()).play();
         alert.setTitle("Confirm Exit");
         alert.setHeaderText(null);
@@ -136,7 +136,7 @@ public class loginController extends Controller implements Initializable {
         alert.getDialogPane().getScene().setFill(Color.TRANSPARENT);
         Optional<ButtonType> result = alert.showAndWait();
         result.ifPresent(res -> {
-            if (res.equals(good_btn)) {
+            if (res.equals(logout_btn)) {
                 Stage stage1 = (Stage) logout_btn.getScene().getWindow();
                 stage1.close();
                 Parent root = null;
